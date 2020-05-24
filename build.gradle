@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '4.0.0-alpha-2'
+}
+
+//tasks.register("chrome",Test.class).configure{
+//    systemProperty("driver","chrome")
+//    useTestNG{
+//        suites "src\\test\\resources\\testNg.xml"
+//    }
+//
+//}
+task chrome(type: Test) {
+    systemProperty("driver", "chrome")
+    useTestNG {
+        suites "src\\test\\resources\\testNg.xml"
+    }
+}
+task fireFox(type: Test) {
+    systemProperty("driver", "fireFox")
+    useTestNG {
+        suites "src\\test\\resources\\testNg.xml"
+    }
+
+}
+
