@@ -12,6 +12,7 @@ public class LoginHelper extends LoginPage {
 
     }
     public void login(User user) {
+        log.info(String.format("Login user name - %s , password - %s .",user.userName,user.password));
         login(user.userName,user.password);
 
     }
